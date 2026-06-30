@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0A0E17;
+  --surface: #111722;
+  --border: #1E2733;
+  --text: #E7ECF3;
+  --muted: #7C8AA0;
+  --signal: #46C8FF;
+  --violet: #B68CFF;
+  --ok: #4ADE80;
+  --infra: #f59e0b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  padding-bottom: 36px;
+}
+
+::selection {
+  background: var(--signal);
+  color: var(--bg);
+}
+
+@layer base {
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--signal);
+  }
+}
+
+@layer components {
+  .card-hover {
+    transition: all 0.2s;
+  }
+  .card-hover:hover {
+    transform: translateY(-0.25rem);
+    border-color: var(--signal);
+  }
+  .btn-hover {
+    transition: transform 0.2s;
+  }
+  .btn-hover:hover {
+    transform: scale(1.02);
+  }
+}

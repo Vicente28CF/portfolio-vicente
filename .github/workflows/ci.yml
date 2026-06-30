@@ -1,0 +1,98 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches-ignore: [main]
+
+env:
+  PYTHON_VERSION: "3.11"
+  NODE_VERSION: "20"
+
+jobs:
+  backend:
+    name: Backend — lint + test
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: apps/api
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: portfolio
+          POSTGRES_PASSWORD: portfolio
+          POSTGRES_DB: portfolio_test
+        ports:
+          - "5432:5432"
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: apps/api/pyproject.toml
+
+      - run: pip install -e ".[dev]"
+
+      - run: ruff check app/
+        name: Lint (ruff)
+
+      - run: mypy app/ --ignore-missing-imports
+        name: Type check (mypy)
+        continue-on-error: true
+
+      - run: alembic upgrade head
+        name: Run migrations
+        env:
+          DATABASE_URL: postgresql+asyncpg://portfolio:portfolio@localhost:5432/portfolio_test
+
+      - run: pytest tests/ --cov=app --cov-report=term-missing --cov-fail-under=80
+        name: Test (pytest)
+        env:
+          DATABASE_URL: postgresql+asyncpg://portfolio:portfolio@localhost:5432/portfolio_test
+          APP_ENV: test
+
+  frontend:
+    name: Frontend — lint + type-check + test
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: apps/web
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - run: pnpm install --frozen-lockfile
+        working-directory: .
+
+      - run: pnpm lint
+        name: Lint (next lint)
+        continue-on-error: true
+
+      - run: pnpm type-check
+        name: Type check (tsc)
+
+      - run: pnpm test
+        name: Test (vitest)

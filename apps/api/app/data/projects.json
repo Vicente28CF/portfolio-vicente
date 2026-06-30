@@ -1,0 +1,151 @@
+[
+  {
+    "slug": "enmice",
+    "title": "ENMICE",
+    "tagline": "Sitio oficial de la organización de ingeniería",
+    "description": "Sitio oficial de una organización de ingeniería, con galería, mobile-first y workflow Git en equipo.",
+    "long_description": "Colaboración en el sitio web de la organización ENMICE. El reto fue modernizar la interfaz para móvil, agregar una galería con lightbox y establecer un flujo Git que permitiera a tres desarrolladores trabajar en paralelo sin conflictos.",
+    "stack": ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    "github": "https://github.com/Vicente28CF/enmice",
+    "url": "https://enmice.mx",
+    "screenshots": [],
+    "highlights": [
+      "Diseño mobile-first completo",
+      "Galería con lightbox interactivo",
+      "Estrategia Git feat → preprod con cherry-picks"
+    ],
+    "featured": true,
+    "status": "production",
+    "status_note": "En mejora continua",
+    "case_study": {
+      "problem": "El sitio de la organización necesitaba verse profesional en móvil y un equipo de 3 devs trabajando sin pisarse el código.",
+      "solution": "Implementación mobile-first completa, lightbox de galería, y estrategia de branches feat → preprod con cherry-picks controlados.",
+      "result": "Sitio en producción, flujo de Git estable para el equipo."
+    }
+  },
+  {
+    "slug": "compuclub",
+    "title": "CompuClub",
+    "tagline": "Centro educativo de computación para niños, adolescentes y adultos",
+    "description": "Emprendimiento propio enfocado en enseñar competencias digitales a personas de todas las edades en la comunidad. Landing page para comunicar la oferta de cursos y facilitar el contacto.",
+    "long_description": "Sitio web para CompuClub, un emprendimiento de formación tecnológica fundado por Vicente Cayetano y Gabriela Lopez. Presenta cursos, misión, servicios y canales de contacto con una interfaz moderna y responsive.",
+    "tech_stack": {
+      "backend": [],
+      "frontend": ["Next.js 14", "TypeScript", "Tailwind CSS", "shadcn/ui", "Framer Motion"],
+      "infra": ["Vercel"]
+    },
+    "url": "https://landing-page-compuclub.vercel.app",
+    "image_url": "/projects/compuclub.png",
+    "screenshots": [],
+    "highlights": [
+      "App Router con Next.js",
+      "Animaciones con Framer Motion",
+      "Formulario validado con Zod y React Hook Form"
+    ],
+    "featured": true,
+    "status": "development",
+    "status_note": "Proyecto propio en construcción activa",
+    "case_study": {
+      "problem": "CompuClub no tenía presencia digital propia para dar a conocer sus cursos de computación a la comunidad.",
+      "solution": "Diseñé y desplegué una landing page que comunica claramente la oferta de cursos y facilita el contacto directo con interesados.",
+      "result": "Sitio en línea, en mejora continua mientras crece la oferta de cursos y el número de alumnos."
+    }
+  },
+  {
+    "slug": "equipales-cantor",
+    "title": "Equipales Cantor",
+    "tagline": "Catálogo digital para taller artesanal de equipales",
+    "description": "Página tipo ecommerce para un taller de equipales en Zacoalco de Torres, Jalisco.",
+    "long_description": "Experiencia web enfocada en mostrar catálogo, propuesta de valor y contacto comercial para un taller artesanal de equipales. El proyecto combina contenido visual, estructura de producto y despliegue en Vercel.",
+    "stack": ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    "github": "https://github.com/Vicente28CF/equipales-cantor",
+    "url": "https://www.equipalescantor.com",
+    "screenshots": [],
+    "highlights": [
+      "Catálogo orientado a conversión",
+      "Diseño responsive para clientes móviles",
+      "Deploy público en Vercel"
+    ],
+    "status": "production",
+    "case_study": {
+      "problem": "El cliente no aparecía en resultados de búsqueda locales y perdía ventas frente a competidores con mejor SEO.",
+      "solution": "Implementé Schema.org structured data, sitemap dinámico, páginas de producto con generateStaticParams y LocalBusiness schema.",
+      "result": "32 páginas estáticas indexadas y desplegadas en producción en Vercel."
+    }
+  },
+  {
+    "slug": "equipales-casillas",
+    "title": "Equipales Casillas",
+    "tagline": "Mi primer proyecto real — catálogo artesanal aún en producción",
+    "description": "Mi primer proyecto real para una empresa. Sitio de catálogo y contacto para un negocio familiar de equipales, construido desde cero con HTML, CSS, Python y JavaScript. Diseño responsive y en producción hasta el día de hoy.",
+    "long_description": "Mi primer proyecto real para una empresa. Un sitio de catálogo para un negocio familiar de equipales en Zacoalco de Torres. Construido completamente desde cero con HTML, CSS, Python y JavaScript vanilla. Diseño responsive, sin frameworks, desplegado en PythonAnywhere. Sigue funcionando en producción desde su lanzamiento.",
+    "tech_stack": {
+      "backend": ["Python"],
+      "frontend": ["HTML", "CSS", "JavaScript"],
+      "infra": ["PythonAnywhere"]
+    },
+    "stack": ["HTML", "CSS", "JavaScript", "Python"],
+    "url": "https://www.equipalescasillasmx.com",
+    "image_url": "/projects/equipales-casillas.png",
+    "screenshots": [],
+    "highlights": [
+      "Mi primer proyecto real para una empresa",
+      "HTML, CSS y JavaScript vanilla — sin frameworks",
+      "Backend en Python",
+      "Diseño responsive",
+      "Desplegado en PythonAnywhere",
+      "Sigue en producción desde su lanzamiento"
+    ],
+    "featured": true,
+    "status": "production",
+    "status_note": "Mi primer proyecto en producción",
+    "case_study": {
+      "problem": "El negocio familiar necesitaba presencia digital profesional para mostrar su catálogo de equipales artesanales y facilitar el contacto con clientes.",
+      "solution": "Construí el sitio desde cero con tecnologías web clásicas (HTML, CSS, JavaScript, Python), diseño responsive, y lo desplegué en PythonAnywhere.",
+      "result": "Sitio en producción continua desde entonces, accesible públicamente, funcionando sin inconvenientes."
+    }
+  },
+  {
+    "slug": "lotex",
+    "title": "LoteX / Terrify",
+    "tagline": "Marketplace para compraventa de terrenos, arrancando en Jalisco",
+    "description": "Marketplace de terrenos con frontend en Next.js y backend en Django REST.",
+    "long_description": "Marketplace inmobiliario orientado a terrenos, pensado para exploración pública sin fricción y acciones protegidas como publicar o contactar vendedores. La arquitectura separa frontend, API, base de datos y despliegue.",
+    "stack": ["Next.js", "Django REST", "PostgreSQL", "Redis", "Docker"],
+    "github": "https://github.com/Vicente28CF/lotex",
+    "screenshots": [],
+    "highlights": [
+      "Arquitectura frontend/backend separada",
+      "Autenticación JWT y acciones protegidas",
+      "Preparado para PostgreSQL, Redis, Vercel y Render"
+    ],
+    "featured": true,
+    "status": "development",
+    "status_note": "Fase inicial — expandiendo gradualmente a más estados",
+    "case_study": {
+      "problem": "Comprar o vender un terreno en México implica desconfiar de intermediarios opacos y procesos poco transparentes, sobre todo en mercados regionales como Jalisco.",
+      "solution": "Plataforma propia (antes llamada Terrify, ahora LoteX) con autenticación, publicación de terrenos y contacto mediado entre comprador y vendedor.",
+      "result": "Backend completo y frontend conectado, en fase inicial enfocada en Jalisco, con plan de expansión gradual a otros estados de México."
+    }
+  },
+  {
+    "slug": "agendi",
+    "title": "Agendi",
+    "tagline": "Agente de IA que agenda citas por WhatsApp",
+    "description": "Agente de IA que agenda citas por WhatsApp y sincroniza con Google Calendar en tiempo real.",
+    "long_description": "Sistema de automatización de agenda para PYMEs en LATAM. Un agente de IA responde mensajes de WhatsApp, extrae la intención de agendar, consulta disponibilidad en Google Calendar y confirma la cita sin intervención humana.",
+    "stack": ["Next.js", "FastAPI", "Groq", "Google Calendar API", "Socket.io", "PostgreSQL"],
+    "github": "https://github.com/Vicente28CF/agendi",
+    "screenshots": [],
+    "highlights": [
+      "Agente IA con Groq para comprensión de lenguaje natural",
+      "Integración webhook WhatsApp → calendario → panel live",
+      "Notificaciones en tiempo real con Socket.io"
+    ],
+    "case_study": {
+      "problem": "Las PYMEs en LATAM pierden citas por no responder WhatsApp a tiempo y no tienen presupuesto para un CRM caro.",
+      "solution": "Agente de IA (Groq) que responde por WhatsApp, agenda directo en Google Calendar y notifica en tiempo real via Socket.io.",
+      "result": "Sprint 1 completo: flujo webhook → IA → calendario → panel en tiempo real funcionando."
+    }
+  }
+]
