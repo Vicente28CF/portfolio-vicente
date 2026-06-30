@@ -8,29 +8,6 @@ env:
   NODE_VERSION: "20"
 
 jobs:
-  deploy-api:
-    name: Deploy API → Render
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Trigger Render deploy hook
-        run: |
-          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
-
-      - name: Wait for health check
-        run: |
-          for i in $(seq 1 30); do
-            STATUS=$(curl -s -o /dev/null -w "%{http_code}" "${{ secrets.API_HEALTH_URL }}" || echo "000")
-            if [ "$STATUS" = "200" ]; then
-              echo "API is healthy!"
-              exit 0
-            fi
-            echo "Attempt $i: status $STATUS — waiting..."
-            sleep 5
-          done
-          echo "API failed to respond after 30 attempts"
-          exit 1
-
   deploy-web:
     name: Deploy Web → Vercel
     runs-on: ubuntu-latest
