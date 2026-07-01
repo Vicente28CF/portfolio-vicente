@@ -60,22 +60,28 @@ async def _fetch_github_events() -> list[dict]:
 
 
 async def get_github_activity() -> dict:
-    redis = get_redis()
-    cached_value = await redis.get(CACHE_KEY)
-
-    if cached_value:
-        payload = json.loads(cached_value)
-        ttl = await redis.ttl(CACHE_KEY)
-        return {
-            "events": payload["events"],
-            "cached": True,
-            "cache_ttl_seconds": ttl if ttl > 0 else None,
-        }
+    try:
+        redis = get_redis()
+        cached_value = await redis.get(CACHE_KEY)
+        if cached_value:
+            payload = json.loads(cached_value)
+            ttl = await redis.ttl(CACHE_KEY)
+            return {
+                "events": payload["events"],
+                "cached": True,
+                "cache_ttl_seconds": ttl if ttl > 0 else None,
+            }
+    except Exception:
+        pass
 
     raw_events = await _fetch_github_events()
     events = _extract_events(raw_events)
-    cache_payload = {"events": events}
-    await redis.set(CACHE_KEY, json.dumps(cache_payload), ex=CACHE_TTL_SECONDS)
+
+    try:
+        cache_payload = {"events": events}
+        await redis.set(CACHE_KEY, json.dumps(cache_payload), ex=CACHE_TTL_SECONDS)  # type: ignore[possibly-undefined]
+    except Exception:
+        pass
 
     return {
         "events": events,

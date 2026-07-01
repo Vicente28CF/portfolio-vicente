@@ -15,6 +15,10 @@
 
 Personal portfolio and professional showcase built with a modern full-stack architecture. Features a blog-style project showcase, live coding demos, GitHub activity feed, skill matching engine, and contact form with email notifications.
 
+🌐 **Live**: [portfolio-vicente-web.vercel.app](https://portfolio-vicente-web.vercel.app)  
+⚙️ **API**: [portfolio-api-a9wi.onrender.com](https://portfolio-api-a9wi.onrender.com)  
+📖 **Docs**: [portfolio-api-a9wi.onrender.com/docs](https://portfolio-api-a9wi.onrender.com/docs)
+
 ## Architecture
 
 ```
