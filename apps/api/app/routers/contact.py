@@ -17,3 +17,6 @@ async def create_contact(form: ContactForm, db: AsyncSession = Depends(get_db)):
         return await submit_contact(form, db)
     except ConnectionRefusedError:
         raise HTTPException(status_code=503, detail="Database not available")
+    except Exception as exc:
+        print(f"[contact] Unexpected error: {exc}")
+        raise HTTPException(status_code=500, detail="Internal server error")

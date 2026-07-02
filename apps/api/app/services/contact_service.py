@@ -17,7 +17,10 @@ async def submit_contact(form: ContactForm, db: AsyncSession) -> ContactResponse
     await db.commit()
     await db.refresh(message)
 
-    await send_contact_notification(form.name, form.email, form.reason, form.message)
+    try:
+        await send_contact_notification(form.name, form.email, form.reason, form.message)
+    except Exception as exc:
+        print(f"[contact] Email notification failed: {exc}")
 
     return ContactResponse(id=str(message.id), status="received")
 
